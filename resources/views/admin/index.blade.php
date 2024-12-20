@@ -9,11 +9,23 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900">
-                    @foreach($requests as $item)
-                    {{$item->car}}
-                    {{$item->request}}
-                    <a href="{{ route('admin.show', $item->id) }}">Обновить</a>
-                    @endforeach
+                    <div class="requests_container_req">
+                        @foreach($requests as $item)
+                        <div class="requests_wrapper_req">
+                            <div class="user_block">Пользователь: {{$item->user->name}} {{$item->user->surname}}</div>
+                            <div class="">Ник: {{$item->car->name}}</div>
+                            <div class="">Модель: {{$item->car->model}}</div>
+                            <div class="">Марка: {{$item->car->make}}</div>
+                            <div class="">Проблема: {{$item->problem}}</div>
+                            @if($item->repair_data==null)
+                                Дата выполнения: на расмотрении
+                            @else
+                                {{$item->repair_data}}
+                            @endif
+                            <a class="btn" href="{{ route('admin.show', $item->id) }}">Обновить</a>
+                        </div>
+                        @endforeach
+                    </div>                    
                 </div>
             </div>
         </div>

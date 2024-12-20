@@ -18,7 +18,7 @@ class RequestController extends Controller
     public function store(Request $req, ModelsRequest $request){
         $data = $req->validate([
             "problem"=>"",
-            "repair_date"=>"",
+            "repair_data"=>"",
             "user_id"=>"",
             "car_id"=>"",
         ]);

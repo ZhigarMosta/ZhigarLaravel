@@ -11,14 +11,16 @@
                 <div class="p-6 text-gray-900">
                     <form method="POST" action="{{ route('requests.store') }}">
                         @csrf
-                        <input type="hidden" name="user_id" value="{{Auth::user()->id}}">
-                        <textarea name="problem" cols="30" rows="10" required></textarea>
-                        <select name="car_id">
-                            @foreach ($cars as $item)
-                                <option value={{$item->id}}>{{$item->model}}</option>
-                            @endforeach
-                        </select>
-                        <button type="submit">Отправить</button>
+                        <div class="form_wrapper">
+                            <input type="hidden" name="user_id" value="{{Auth::user()->id}}">
+                            <textarea name="problem" cols="30" rows="10" required></textarea>
+                            <select name="car_id">
+                                @foreach ($cars as $item)
+                                    <option value={{$item->id}}>{{$item->model}}</option>
+                                @endforeach
+                            </select>
+                            <button class="btn" type="submit">Отправить</button>
+                        </div>
                     </form>
                 </div>
             </div>

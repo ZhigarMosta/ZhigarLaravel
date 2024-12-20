@@ -12,11 +12,13 @@
                     <form method="POST" action="{{ route('admin.updata',$request->id)}}">
                         @csrf
                         @method("patch")
-                        <input type="hidden" name="car_id" value="{{$request->car_id}}">
-                        <input type="hidden" name="user_id" value="{{$request->user_id}}">
-                        <input type="hidden" name="problem" value="{{$request->problem}}">
-                        <input type="date" name="repair_date" required>
-                        <button type="submit">Отправить</button>
+                        <div class="form_wrapper">
+                            <input type="hidden" name="car_id" value="{{$request->car_id}}">
+                            <input type="hidden" name="user_id" value="{{$request->user_id}}">
+                            <input type="hidden" name="problem" value="{{$request->problem}}">
+                            <input type="date" name="repair_data" required>
+                            <button class="btn" type="submit">Отправить</button>
+                        </div>                       
                     </form>
                 </div>
             </div>

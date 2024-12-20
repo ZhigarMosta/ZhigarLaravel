@@ -11,12 +11,14 @@
                 <div class="p-6 text-gray-900">
                     <form method="POST" action="{{ route('cars.store') }}">
                         @csrf
-                        <input type="hidden" name="user_id" value="{{Auth::user()->id}}">
-                        <input type="text" name="name" placeholder="Имя" required>
-                        <input type="text" name="make" placeholder="Марка" required>
-                        <input type="text" name="model" placeholder="Модель" required>
-
-                        <button type="submit">Отправить</button>
+                        <div class="form_wrapper">
+                            <input type="hidden" name="user_id" value="{{Auth::user()->id}}">
+                            <input type="text" name="name" placeholder="Имя" required>
+                            <input type="text" name="make" placeholder="Марка" required>
+                            <input type="text" name="model" placeholder="Модель" required>
+    
+                            <button class="btn" type="submit">Отправить</button>
+                        </div>
                     </form>
                 </div>
             </div>
